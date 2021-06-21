@@ -378,22 +378,44 @@ OmixAtlas aims to address these issues by providing access to ML-ready biology-c
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This function will get all the Omix atlas on Polly. </p>
+<p>This function will list all the Omixatlas on Polly. </p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://v2.api.polly.elucidata.io/v1/omixatlases</code></p>
-<h2 id='get_omixatlas_details'>get_omixatlas_details</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h2 id='get_omixatlas_details'>get_omixatlas_details</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">polly</span> <span class="kn">import</span> <span class="n">Omixatlas</span>
 
+<span class="n">omixatlas_client</span> <span class="o">=</span> <span class="n">Omixatlas</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s">"your-token"</span><span class="p">)</span>
+<span class="n">omixatlas_client</span><span class="p">.</span><span class="n">get_omixatlas_details</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"liveromix_atlas"</span><span class="p">)</span>
 
-<span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://v2.api.polly.elucidata.io/v1/omixatlases/"</span><span class="p">)</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://v2.api.polly.elucidata.io/v1/omixatlases/"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns JSON structured like this:
+<code>json
+[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;liveromix_atlas&quot;,
+    &quot;number_of_samples&quot;: 123456,
+    &quot;numer_of_datasets&quot;: 123456,
+    &quot;sources&quot;: [&quot;GEO&quot;, &quot;LINCS&quot;]
+  }
+]
+</code>
+ This function will give more details about the specific omixatlas like number of samples, what all sources constitute this Omixatlas etc</p>
 </blockquote>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://v2.api.polly.elucidata.io/v1/omixatlases/</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the Omixatlas that you would like to see</td>
+</tr>
+</tbody></table>
 <h2 id='query_with_sql'>query_with_sql</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 
