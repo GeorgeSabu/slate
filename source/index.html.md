@@ -2,7 +2,6 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - python
 
 toc_footers:
@@ -20,6 +19,7 @@ code_clipboard: true
 # Polly API's
 
 This is the collection of API/library functions that is available for Polly account holder to interact with the Polly offerings. Polly API has the ability to interact with
+
 1. Omixatlas
 2. Workspaces
 
@@ -44,23 +44,24 @@ OmixAtlas aims to address these issues by providing access to ML-ready biology-c
 ## get_all_omixatlas
 
 ```python
-import requests
+from polly import Omixatlas
 
+omixatlas_client = Omixatlas(token="your-token")
+omixatlas_client.get_all_omixatlas()
 
-requests.get("https://v2.api.polly.elucidata.io/v1/omixatlases")
-
-```
-
-```shell
-curl "https://v2.api.polly.elucidata.io/v1/omixatlases"
-  -H "Authorization: meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
 
-
-
-
+```json
+[
+  {
+    "id": 1,
+    "name": "liveromix_atlas"
+  }
+]
+```
+This function will get all the Omix atlas on Polly. 
 
 ### HTTP Request
 
