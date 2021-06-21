@@ -3,9 +3,7 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
   - python
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -19,223 +17,169 @@ search: true
 code_clipboard: true
 ---
 
-# Introduction
+# Polly API's
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This is the collection of API/library functions that is available for Polly account holder to interact with the Polly offerings. Polly API has the ability to interact with
+1. Omixatlas
+2. Workspaces
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+More API will get added to this soon. Happy Coding
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
-> To authorize, use this code:
+Authentication of Polly API is taken care by a token that is give to the user from the user interface. This token can be got from the below interface. This token will get expired in 30 days. ![Drag Racing](https://elucidatainc.github.io/PublicAssets/documentation-images/token_screen.png)
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+
+
+# Omixatlas
+
+Every year, vast amounts of biological multi-omics data are being generated and deposited on public repositories by academic labs and organizations worldwide. These data hold tremendous potential for reuse and discovery but are scattered across multiple, disparate sources and lack standardization. Thus, the availability of data does not equate to its easy usability. This makes the need for an efficient means of exploring molecular data an immediate necessity. 
+Additionally, no single type of data, be it metabolomic, proteomic or genomic, will be sufficient to capture the complexity of biological phenomena. Adopting an integrated approach could significantly aid the ability to gain a more 
+holistic and accurate understanding of human physiology and disease pathology at the molecular level. 
+OmixAtlas aims to address these issues by providing access to ML-ready biology-centric data from public repositories.
+
+
+## get_all_omixatlas
 
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
+
+requests.get("https://v2.api.polly.elucidata.io/v1/omixatlases")
+
 ```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
+curl "https://v2.api.polly.elucidata.io/v1/omixatlases"
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
 
-This endpoint retrieves all kittens.
+
+
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://v2.api.polly.elucidata.io/v1/omixatlases`
 
-### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
 
-## Get a Specific Kitten
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## get_omixatlas_details
 
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+
+requests.get("https://v2.api.polly.elucidata.io/v1/omixatlases/")
+
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2" \
+curl "https://v2.api.polly.elucidata.io/v1/omixatlases/"
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
 ```
 
 > The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
 
-This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://v2.api.polly.elucidata.io/v1/omixatlases/`
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+## query_with_sql
 
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
+
+requests.post("https://v2.api.polly.elucidata.io/v1/omixatlases/_query")
+
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
+curl "https://v2.api.polly.elucidata.io/v1/omixatlases/_query"
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
 ```
 
 > The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
 
-This endpoint deletes a specific kitten.
+
+
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`POST https://v2.api.polly.elucidata.io/v1/omixatlases/_query`
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+
+
+
+## query_with_elasticsearch
+
+```python
+import requests
+
+
+requests.post("https://v2.api.polly.elucidata.io/v1/omixatlases/_search")
+
+```
+
+```shell
+curl "https://v2.api.polly.elucidata.io/v1/omixatlases/_search"
+  -H "Authorization: meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+
+
+
+
+### HTTP Request
+
+`POST https://v2.api.polly.elucidata.io/v1/omixatlases/_search`
+
+
+
+
+
+## get_dataset_signed_url
+
+```python
+import requests
+
+
+requests.get("https://v2.api.polly.elucidata.io/v1/omixatlases/repo.name/download/")
+
+```
+
+```shell
+curl "https://v2.api.polly.elucidata.io/v1/omixatlases/repo.name/download/"
+  -H "Authorization: meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+
+
+
+
+### HTTP Request
+
+`GET https://v2.api.polly.elucidata.io/v1/omixatlases/repo.name/download/`
+
 
