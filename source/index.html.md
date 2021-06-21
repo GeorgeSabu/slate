@@ -61,7 +61,7 @@ omixatlas_client.get_all_omixatlas()
   }
 ]
 ```
-This function will get all the Omix atlas on Polly. 
+This function will list all the Omixatlas on Polly. 
 
 ### HTTP Request
 
@@ -74,21 +74,28 @@ This function will get all the Omix atlas on Polly.
 ## get_omixatlas_details
 
 ```python
-import requests
+from polly import Omixatlas
 
-
-requests.get("https://v2.api.polly.elucidata.io/v1/omixatlases/")
+omixatlas_client = Omixatlas(token="your-token")
+omixatlas_client.get_omixatlas_details(name="liveromix_atlas")
 
 ```
 
-```shell
-curl "https://v2.api.polly.elucidata.io/v1/omixatlases/"
-  -H "Authorization: meowmeowmeow"
-```
 
 > The above command returns JSON structured like this:
 
-
+```json
+[
+  {
+    "id": 1,
+    "name": "liveromix_atlas",
+    "number_of_samples": 123456,
+    "numer_of_datasets": 123456,
+    "sources": ["GEO", "LINCS"]
+  }
+]
+```
+ This function will give more details about the specific omixatlas like number of samples, what all sources constitute this Omixatlas etc
 
 
 
@@ -97,7 +104,11 @@ curl "https://v2.api.polly.elucidata.io/v1/omixatlases/"
 `GET https://v2.api.polly.elucidata.io/v1/omixatlases/`
 
 
+### Query Parameters
 
+Parameter | Description
+--------- | -----------
+name      | Name of the Omixatlas that you would like to see 
 
 
 ## query_with_sql
