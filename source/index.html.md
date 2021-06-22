@@ -60,9 +60,6 @@ omixatlas_client.get_all_omixatlas()
 ```
 This function will list all the Omixatlas that I have access to on Polly. 
 
-### HTTP Request
-
-`GET https://v2.api.polly.elucidata.io/v1/omixatlases`
 
 
 
@@ -96,10 +93,6 @@ omixatlas_client.get_omixatlas_details(name="liveromix_atlas")
 
 
 
-### HTTP Request
-
-`GET https://v2.api.polly.elucidata.io/v1/omixatlases/`
-
 
 ### Query Parameters
 
@@ -129,12 +122,6 @@ curl "https://v2.api.polly.elucidata.io/v1/omixatlases/_query"
 
 
 
-### HTTP Request
-
-`POST https://v2.api.polly.elucidata.io/v1/omixatlases/_query`
-
-
-
 
 
 ## query_with_elasticsearch
@@ -155,12 +142,6 @@ curl "https://v2.api.polly.elucidata.io/v1/omixatlases/_search"
 > The above command returns JSON structured like this:
 
 
-
-
-
-### HTTP Request
-
-`POST https://v2.api.polly.elucidata.io/v1/omixatlases/_search`
 
 
 
@@ -185,10 +166,5 @@ curl "https://v2.api.polly.elucidata.io/v1/omixatlases/repo.name/download/"
 
 
 
-
-
-### HTTP Request
-
-`GET https://v2.api.polly.elucidata.io/v1/omixatlases/repo.name/download/`
 
 
