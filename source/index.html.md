@@ -58,7 +58,7 @@ omixatlas_client.get_all_omixatlas()
   }
 ]
 ```
-This function will list all the Omixatlas on Polly. 
+This function will list all the Omixatlas that I have access to on Polly. 
 
 ### HTTP Request
 
