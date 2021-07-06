@@ -83,20 +83,21 @@ html, body {
 
     input {
       background: $nav-bg;
-      border-width: 0 0 1px 0;
+      border-width: 1px;
       border-color: $search-box-border-color;
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - ($nav-padding*2);
+      height: 33px;
       outline: none;
       color: $nav-text;
-      border-radius: 0; /* ios has a default border radius */
+      border-radius: 3px; /* ios has a default border radius */
     }
 
     &:before {
       position: absolute;
-      top: 17px;
+      top: 19px;
       left: $nav-padding;
       color: $nav-text;
       @extend %icon-search;
