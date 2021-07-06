@@ -98,7 +98,7 @@ html, body {
     &:before {
       position: absolute;
       top: 19px;
-      left: $nav-padding;
+      left: 194px;
       color: $nav-text;
       @extend %icon-search;
     }
